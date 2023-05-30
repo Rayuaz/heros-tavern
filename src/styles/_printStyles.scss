@@ -1,0 +1,17 @@
+@include media("print") {
+    .button {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+    #background:not(:has(.background-text)) {
+        display: none;
+    }
+}

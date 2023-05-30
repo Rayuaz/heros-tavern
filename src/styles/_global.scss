@@ -1,0 +1,35 @@
+body {
+    background: $background;
+    height: 100svh;
+    overflow: overlay;
+
+    ::selection {
+        background: black;
+        color: white;
+    }
+
+    &[appearance="dark"] {
+        ::selection {
+            background: white;
+            color: black;
+        }
+    }
+}
+
+#root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: $maxWidth;
+    margin: auto;
+}
+
+.screen-reader-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}

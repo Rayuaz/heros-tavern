@@ -1,0 +1,9 @@
+{
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+            "savePath": "./src/styles"
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false
+}

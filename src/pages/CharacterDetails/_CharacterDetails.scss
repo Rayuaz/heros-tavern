@@ -1,0 +1,106 @@
+#characterDetails {
+    flex: 1;
+    padding: $padding;
+
+    animation: slide-in 0.4s cubic-bezier(0, 0.5, 0, 1);
+
+    p,
+    li {
+        white-space: pre-line;
+    }
+
+    .streaming {
+        font-weight: 700;
+    }
+
+    .button.hiding {
+        animation: fade-out 0.3s ease;
+        animation-fill-mode: forwards;
+    }
+
+    .state-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 100%;
+
+        font-size: $bigFontSize;
+        text-align: center;
+    }
+
+    @keyframes fade-out {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    header {
+        max-width: 50%;
+        margin: auto;
+        text-align: center;
+        border-bottom: 1px solid $border;
+        padding-bottom: 1rem;
+        margin-bottom: calc($padding * 2);
+
+        @include media("<desktop") {
+            max-width: none;
+            margin-bottom: $padding;
+            text-align: start;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-weight: 300;
+            line-height: 1.3;
+        }
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: calc($padding * 2);
+
+        @include media("<desktop") {
+            grid-template-columns: 1fr;
+            gap: $padding;
+        }
+    }
+
+    section {
+        margin-bottom: $padding;
+
+        h2 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-end;
+            gap: 0.5rem;
+
+            svg {
+                width: 1.5rem;
+            }
+        }
+
+        &#background {
+            @include media("<desktop") {
+                grid-row: 2;
+            }
+            .state-container {
+                height: auto;
+            }
+        }
+    }
+}
+
+@include media("<desktop") {
+    #root:has(#characterDetails) footer {
+        padding-top: $padding;
+        padding-bottom: calc($padding * 3);
+    }
+}

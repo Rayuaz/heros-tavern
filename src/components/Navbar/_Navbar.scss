@@ -1,0 +1,41 @@
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background: $background;
+    padding: calc($padding / 2) $padding;
+
+    .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 0.5rem;
+
+        @include media("<desktop") {
+            margin-right: -0.5rem;
+
+            .button {
+                padding: 0.5em;
+                height: fit-content;
+
+                &:not(:hover) {
+                    border-color: transparent;
+                }
+            }
+
+            .label {
+                display: none;
+            }
+        }
+    }
+
+    @include media("<desktop") {
+        .back {
+            margin-left: -0.5rem;
+        }
+    }
+}

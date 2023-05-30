@@ -1,0 +1,46 @@
+$transition: all 0.12s ease;
+
+$padding: 32px;
+$maxWidth: 1280px;
+
+body {
+    --microFontSize: 0.625rem;
+    --tinyFontSize: 0.875rem;
+    --smallFontSize: 1rem;
+    --regularFontSize: 1.25rem;
+    --bigFontSize: 1.5rem;
+    --giantFontSize: 2.25rem;
+    --background: #fff;
+    --text: hsl(0, 0%, 9%);
+    --textHighlight: hsl(0, 0%, 27%);
+    --textSecondary: hsl(0, 0%, 54%);
+    --border: hsl(0, 0%, 89%);
+
+    @include media("<desktop") {
+        --regularFontSize: 1rem;
+        --giantFontSize: 1.5rem;
+    }
+
+    @include media("screen") {
+        &[appearance="dark"] {
+            --background: hsl(0, 0%, 9%);
+            --text: hsl(0, 0%, 80%);
+            --textHighlight: hsl(0, 0%, 100%);
+            --textSecondary: hsl(0, 0%, 45%);
+            --border: hsl(0, 0%, 12%);
+        }
+    }
+}
+
+$text: var(--text);
+$textHighlight: var(--textHighlight);
+$textSecondary: var(--textSecondary);
+$border: var(--border);
+$background: var(--background);
+
+$microFontSize: var(--microFontSize);
+$tinyFontSize: var(--tinyFontSize);
+$smallFontSize: var(--smallFontSize);
+$regularFontSize: var(--regularFontSize);
+$bigFontSize: var(--bigFontSize);
+$giantFontSize: var(--giantFontSize);

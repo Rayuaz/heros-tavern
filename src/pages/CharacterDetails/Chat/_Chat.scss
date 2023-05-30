@@ -1,0 +1,183 @@
+#chat {
+    position: fixed;
+    bottom: calc($padding / 2);
+    right: $padding;
+
+    .thinking {
+        font-size: $smallFontSize;
+        color: $textSecondary;
+        padding-block: 0;
+        margin-bottom: 0.5em;
+    }
+
+    .messages {
+        flex: 1;
+        overflow-y: overlay;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+
+        padding-bottom: 0;
+    }
+
+    .message {
+        list-style: none;
+        margin-bottom: calc($padding * 2);
+
+        &.user {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5em;
+
+            margin-bottom: 0.5rem;
+
+            font-weight: 700;
+
+            svg {
+                margin-top: 0.25em;
+            }
+        }
+
+        &.system {
+            margin-block: calc($padding * 2);
+            padding-inline: $padding;
+
+            @include media("<desktop") {
+                margin-block: $padding;
+                padding-inline: 0;
+            }
+
+            &.cta {
+                margin-top: auto;
+            }
+
+            .message-header {
+                position: relative;
+                contain: content;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 100%;
+
+                font-size: $tinyFontSize;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                text-align: center;
+
+                color: $textSecondary;
+
+                @include media("<desktop") {
+                    margin-bottom: 0.5rem;
+                }
+
+                p {
+                    background: $background;
+                    padding-inline: 1rem;
+                }
+
+                &:before {
+                    content: "";
+
+                    position: absolute;
+                    z-index: -1;
+
+                    height: 1px;
+                    width: 100%;
+
+                    background: $border;
+                }
+            }
+
+            .content,
+            .disclaimer {
+                font-size: $smallFontSize;
+
+                @include media("<desktop") {
+                    font-size: $tinyFontSize;
+                }
+            }
+
+            .disclaimer {
+                color: $textSecondary;
+                margin-top: 0.5rem;
+
+                a {
+                    text-transform: none;
+                    letter-spacing: normal;
+                }
+            }
+
+            .button {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    .text-area-container {
+        position: relative;
+
+        padding-top: 0;
+        padding-bottom: 1rem;
+
+        contain: content;
+
+        &:after {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: $padding;
+            z-index: -1;
+
+            height: 1px;
+            width: calc(100% - ($padding * 2));
+
+            transition: $transition;
+
+            background: $border;
+        }
+
+        &:has(textarea:hover):after {
+            background: $text;
+        }
+
+        &:has(textarea:focus-visible):after {
+            background: $text;
+            height: 4px;
+            border-radius: 0 0 4px 4px;
+        }
+    }
+
+    textarea {
+        resize: none;
+        border: none;
+        padding-block: 1em;
+        width: 100%;
+        transition: $transition;
+        background: transparent;
+
+        @include media("<desktop") {
+            padding-bottom: 0;
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    .button[type="submit"] {
+        width: fit-content;
+        margin-left: auto;
+
+        .label {
+            order: -2;
+        }
+
+        &:not(:hover) {
+            border-color: transparent;
+        }
+    }
+}

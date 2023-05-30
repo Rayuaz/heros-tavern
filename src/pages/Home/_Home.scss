@@ -1,0 +1,135 @@
+#characterPrompt {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    padding: $padding;
+
+    @include media("<desktop") {
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1rem;
+        overflow-y: auto;
+    }
+
+    .greeting {
+        @extend h2;
+        font-size: $tinyFontSize;
+
+        @include media("<desktop") {
+            color: $textHighlight;
+        }
+    }
+
+    .prompt {
+        font-size: $giantFontSize;
+        text-align: center;
+        line-height: 1.7;
+
+        @include media("<desktop") {
+            text-align: start;
+            line-height: 1.5;
+        }
+
+        strong {
+            border-radius: 4px;
+            position: relative;
+            text-transform: capitalize;
+        }
+    }
+
+    .spinner {
+        width: 144px;
+        height: 144px;
+        display: inline-block;
+        position: relative;
+
+        &::after,
+        &::before {
+            content: "";
+            box-sizing: border-box;
+            width: 144px;
+            height: 144px;
+            border-radius: 50%;
+            background: $textSecondary;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: animloader 2s linear infinite;
+        }
+
+        &::after {
+            animation-delay: 1s;
+        }
+    }
+
+    @keyframes animloader {
+        0% {
+            transform: scale(0);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
+}
+
+#footerSection {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    padding-inline: $padding;
+
+    @include media("<desktop") {
+        position: relative;
+
+        &:before {
+            content: "";
+            width: 100%;
+            height: $padding;
+            background: linear-gradient(0deg, $background 0%, rgba(0, 0, 0, 0) 100%);
+            position: absolute;
+            top: -$padding;
+            left: 0;
+        }
+    }
+
+    #controls {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        @include media("<desktop") {
+            width: 100%;
+
+            .button {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.loading {
+    animation: fadeIn 0.24s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0%,
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

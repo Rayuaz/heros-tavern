@@ -1,0 +1,90 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+
+    width: 100%;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    font-size: $tinyFontSize;
+    text-decoration: none;
+
+    transition: $transition;
+
+    user-select: none;
+
+    svg {
+        width: 1.5rem;
+    }
+
+    .label {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        text-align: start;
+    }
+
+    &:hover:not([disabled], .disabled),
+    &:focus-visible {
+        cursor: pointer;
+        transform: translateY(-3px);
+        box-shadow: 0px 3px 0px 0px $text;
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    &.small {
+        padding: 0.5rem 1rem;
+        font-size: $tinyFontSize;
+    }
+
+    &.big {
+        padding: 1rem 2rem;
+        font-size: $smallFontSize;
+    }
+
+    &.primary {
+        background: $text;
+        color: $background;
+        fill: $background;
+        border-width: 3px;
+
+        &:hover:not([disabled], .disabled) {
+            border-color: $text;
+            background: $textHighlight;
+        }
+
+        &:active {
+            background: $text;
+        }
+    }
+
+    &.secondary {
+        border-color: $text;
+        color: $text;
+
+        &:active {
+            background: $border;
+        }
+    }
+
+    &.icon {
+        width: fit-content;
+        padding: 0.5rem;
+
+        &:hover:not([disabled], .disabled) {
+            border-color: $text;
+        }
+    }
+
+    &[disabled],
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}

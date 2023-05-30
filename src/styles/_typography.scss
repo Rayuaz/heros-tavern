@@ -1,0 +1,56 @@
+@import "variables";
+
+body,
+#modal {
+    color: $text;
+    fill: $text;
+    font-family: "Lato", sans-serif;
+    font-size: $regularFontSize;
+}
+
+svg {
+    fill: inherit;
+}
+
+h1 {
+    font-size: $bigFontSize;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    color: $text;
+}
+
+p,
+li,
+textarea {
+    line-height: 1.5;
+}
+
+strong {
+    font-weight: 700;
+}
+
+a {
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $textSecondary;
+
+    transition: $transition;
+
+    &:hover {
+        color: $text;
+    }
+}
+
+ul {
+    padding-left: 1em;
+}
+
+li {
+    margin-bottom: 0.75em;
+    list-style-type: disc;
+}

@@ -1,0 +1,48 @@
+#notification {
+    position: fixed;
+    top: calc($padding / 2);
+    left: 0;
+    z-index: 99;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+
+    animation: slide-down 0.3s ease;
+    animation-fill-mode: forwards;
+
+    &.closing {
+        animation: slide-up 0.3s ease;
+        animation-fill-mode: forwards;
+    }
+
+    p {
+        background: $text;
+        color: $background;
+        padding: 0.25rem 1rem;
+        border-radius: 4px;
+        text-align: center;
+
+        max-width: $maxWidth;
+    }
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(calc($padding * -2));
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(calc($padding * -2));
+    }
+}

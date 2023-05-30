@@ -1,0 +1,67 @@
+.loader {
+    --dot-size: 1.875rem;
+    --dot-speed: 2s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--dot-size);
+    height: var(--dot-size);
+}
+
+.loader-dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+
+    &:before {
+        content: "";
+        display: block;
+        height: calc(var(--dot-size) * 0.22);
+        width: calc(var(--dot-size) * 0.22);
+        border-radius: 50%;
+        background-color: $text;
+        will-change: transform;
+    }
+
+    &:nth-child(1) {
+        animation: leapFrog var(--dot-speed) ease infinite;
+    }
+
+    &:nth-child(2) {
+        transform: translateX(calc(var(--dot-size) * 0.4));
+        animation: leapFrog var(--dot-speed) ease calc(var(--dot-speed) / -1.5) infinite;
+    }
+
+    &:nth-child(3) {
+        transform: translateX(calc(var(--dot-size) * 0.8)) rotate(0deg);
+        animation: leapFrog var(--dot-speed) ease calc(var(--dot-speed) / -3) infinite;
+    }
+}
+
+@keyframes leapFrog {
+    0% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    33.333% {
+        transform: translateX(0) rotate(180deg);
+    }
+
+    66.666% {
+        transform: translateX(calc(var(--dot-size) * -0.4)) rotate(180deg);
+    }
+
+    99.999% {
+        transform: translateX(calc(var(--dot-size) * -0.8)) rotate(180deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
