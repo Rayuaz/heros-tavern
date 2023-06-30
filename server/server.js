@@ -7,6 +7,7 @@ import stream from "stream";
 import rateLimit from "express-rate-limit";
 const PORT = 8000;
 
+// Standard rate limiter
 const standardLimiter = rateLimit({
     windowMs: 1000,
     max: 3,
@@ -14,6 +15,7 @@ const standardLimiter = rateLimit({
     legacyHeaders: false,
 });
 
+// Chat rate limiter
 const chatLimiter = rateLimit({
     windowMs: 1 * 60 * 1000,
     max: 3,
@@ -21,11 +23,15 @@ const chatLimiter = rateLimit({
     legacyHeaders: false,
 });
 
+/* --- PocketBase authentication --- */
+
 const pb = new PocketBase(dotenv.config().parsed.POCKETBASE_URL);
 pb.autoCancellation(false);
 await pb
     .collection("users")
     .authWithPassword(dotenv.config().parsed.POCKETBASE_EMAIL, dotenv.config().parsed.POCKETBASE_PASWORD);
+
+/* --- Express configuration --- */
 
 const app = express();
 
@@ -38,6 +44,9 @@ app.use(
 );
 
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
+
+/* --- /characters/random --- 
+/* Returns a random character */
 
 app.get("/characters/random", standardLimiter, async (req, res) => {
     const races = req.query.races || [];
@@ -86,12 +95,14 @@ app.get("/characters/random", standardLimiter, async (req, res) => {
     }
 });
 
+/* --- /characters/:characterId ---
+/* Returns a specific character */
+
 app.get("/characters/:characterId", standardLimiter, async (req, res) => {
     const characterId = req.params.characterId;
 
     try {
         const data = await pb.collection("characters").getOne(characterId);
-        console.log(data);
         res.status(200).json(data);
     } catch (error) {
         console.log(error);
@@ -103,6 +114,9 @@ app.get("/characters/:characterId", standardLimiter, async (req, res) => {
         }
     }
 });
+
+/* --- /characters/:characterId/background ---
+/* Generates and streams the character background */
 
 app.get("/characters/:characterId/background", standardLimiter, async (req, res) => {
     const characterId = req.params.characterId;
@@ -195,6 +209,9 @@ app.get("/characters/:characterId/background", standardLimiter, async (req, res)
         }
     }
 });
+
+/* --- /chat ---
+/* Sends a message to Open API completions endpoint, and returns the completion  */
 
 app.post("/chat", chatLimiter, async (req, res) => {
     const character = req.body.character;
