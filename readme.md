@@ -42,6 +42,8 @@ In the production environment, you will still need to run the database and the A
 
 -   `OPEN_API_KEY`: Your Open API key. This will be used to generate the character background, and to run the chat.
 -   `APP_URL`: The URL where the app is running. Used by the API gateway for setting up CORS.
+-   `VITE_APP_DOMAIN`: The public domain of the website hosting the app. It's used for the HTML meta tags.
+-   `API_PORT`: The port where the API will run.
 -   `VITE_API_URL`: The API gateway URL. Used by the app to make requests to the gateway.
 -   `POCKETBASE_URL`: Used by the gateway to operate the database.
 -   `POCKETBASE_EMAIL`: The gateway PocketBase user email. Used by the gateway to get authorization to operate the database.

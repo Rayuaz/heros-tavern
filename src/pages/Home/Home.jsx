@@ -10,7 +10,7 @@ import OptionsForm from "./OptionsForm/OptionsForm";
 import Notification from "@/components/Notification/Notification";
 
 import getRandom from "@/utils/getRandom";
-import axios from "@/apis/axiosConfig.js";
+import axios from "@/config/axiosConfig.js";
 import useAxios from "@/hooks/useAxios";
 import { greetings, classesRegex, racesRegex, filterOptions } from "./variables";
 

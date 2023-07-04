@@ -9,7 +9,7 @@ import Chat from "./Chat/Chat";
 import Notification from "@/components/Notification/Notification";
 import Loader from "../../components/Loader/Loader";
 
-import axios from "@/apis/axiosConfig.js";
+import axios from "@/config/axiosConfig.js";
 import useAxios from "@/hooks/useAxios";
 
 import { ShareIcon } from "@/assets/icons/ShareIcon";

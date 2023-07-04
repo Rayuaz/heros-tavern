@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import Button from "@/components/Button/Button";
 
-import axios from "@/apis/axiosConfig.js";
+import axios from "@/config/axiosConfig.js";
 import getRandom from "@/utils/getRandom";
 import { chatSuggestions } from "./chatSuggestions";
 
