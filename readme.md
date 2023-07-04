@@ -10,7 +10,7 @@ This app requires [PocketBase](https://pocketbase.io/) as its database. You can 
 
 #### Populating the database
 
-To populate the database, you can use the [Hero's Tavern Populator](https://github.com/Rayuaz/heros-tavern-populator). This tool uses Open AI's API to generate new charatcers and add them to the database. It also has a script to rename characters, since GPT 3.5 has a tendency to use copyrighted character names.
+To populate the database, you can use the [Hero's Tavern Populator](https://github.com/Rayuaz/heros-tavern-populator). This tool uses Open AI's API to generate new characters and add them to the database. It also has a script to rename characters, since GPT 3.5 has a tendency to use copyrighted character names.
 
 ### Running the application
 
