@@ -45,6 +45,7 @@ router.get("/random", standardLimiter, async (req, res) => {
     try {
         const data = await pb.collection("characters").getFirstListItem(filters, {
             sort: "@random",
+            fields: "id, prompt",
         });
         res.status(200).json(data);
     } catch (error) {
