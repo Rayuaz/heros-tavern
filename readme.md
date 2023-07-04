@@ -6,17 +6,21 @@ Hero's Tavern is a web app for RPG character inspiration. In the main page, the 
 
 ### Database
 
-This repository contains only the frontend application. To function correctly, it requires a PocketBase database to store the character data. The database configuration info, as well as the tools to populate it are available in the [Hero's Tavern Utilities](https://github.com/Rayuaz/heros-tavern-utilities) repository.
+This app requires [PocketBase](https://pocketbase.io/) as its database. You can install it wherever you want. After installing, set the data schema by opening the pocketbase admin UI and going to Settings > import collections. You can find the schema for this project in `pocketbase/pb_schema.json`. This folder also has some sample data. To use it, replace the `data.db` file in your PocketBase install directory with the `data.db` file in the `pocketbase` directory in this repository.
+
+#### Populating the database
+
+To populate the database, you can use the [Hero's Tavern Populator](https://github.com/Rayuaz/heros-tavern-populator). This tool uses Open AI's API to generate new charatcers and add them to the database. It also has a script to rename characters, since GPT 3.5 has a tendency to use copyrighted character names.
 
 ### Running the application
 
-1. Navigate to the database folder and start the database:
+1. Navigate to your PocketBase intall directory and run:
 
 ```
 ./pocketbase serve
 ```
 
-2. Navigate to the root folder and start the API Gateway:
+2. Navigate to the project folder and start the API Gateway:
 
 ```
 npm run server
@@ -36,7 +40,7 @@ When you are ready for production, run:
 npm run build
 ```
 
-In the production environment, you will still need to run the database and the API Gateway, following steps 1 and 2.
+In the production environment, you will still need to start PocketBase and the API Gateway, following steps 1 and 2.
 
 ### Environment variables
 
