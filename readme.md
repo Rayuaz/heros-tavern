@@ -20,7 +20,7 @@ To populate the database, you can use the [Hero's Tavern Populator](https://gith
 ./pocketbase serve
 ```
 
-2. Navigate to the project folder and start the API Gateway:
+2. Navigate to the project folder and start the API:
 
 ```
 npm run server
@@ -40,15 +40,15 @@ When you are ready for production, run:
 npm run build
 ```
 
-In the production environment, you will still need to start PocketBase and the API Gateway, following steps 1 and 2.
+In the production environment, you will still need to start PocketBase and the API, following steps 1 and 2.
 
 ### Environment variables
 
 -   `OPEN_API_KEY`: Your Open API key. This will be used to generate the character background, and to run the chat.
--   `APP_URL`: The URL where the app is running. Used by the API gateway for setting up CORS.
+-   `APP_URL`: The URL where the app is running. Used by the API for setting up CORS.
 -   `VITE_APP_DOMAIN`: The public domain of the website hosting the app. It's used for the HTML meta tags.
 -   `API_PORT`: The port where the API will run.
--   `VITE_API_URL`: The API gateway URL. Used by the app to make requests to the gateway.
--   `POCKETBASE_URL`: Used by the gateway to operate the database.
--   `POCKETBASE_EMAIL`: The gateway PocketBase user email. Used by the gateway to get authorization to operate the database.
--   `POCKETBASE_URL`: The gateway PocketBase user password. Used by the gateway to get authorization to operate the database.
+-   `VITE_API_URL`: The API URL. Used by the app to make requests to the API.
+-   `POCKETBASE_URL`: Used by the API to operate the database.
+-   `POCKETBASE_EMAIL`: The API's PocketBase user email. Used by the API to get authorization to operate the database.
+-   `POCKETBASE_PASSWORD`: The API's PocketBase user password. Used by the API to get authorization to operate the database.
