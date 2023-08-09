@@ -5,4 +5,32 @@ footer {
     text-align: center;
 
     color: $textSecondary;
+
+    p {
+        margin-bottom: 0.25rem;
+    }
+
+    .links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        font-size: $microFontSize;
+
+        a:not(:first-child) {
+            position: relative;
+
+            &:after {
+                content: "";
+
+                position: absolute;
+                top: 0;
+                left: -0.5rem;
+
+                width: 1px;
+                height: 100%;
+
+                background: $textSecondary;
+            }
+        }
+    }
 }
